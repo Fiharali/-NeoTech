@@ -3,11 +3,9 @@ include  __DIR__ . '/../partials/navbar.php';
 include  __DIR__ . '/../../controller/produit.php';
 
 
-$controller = new UserController();
-$produitList = $controller->all();
-// var_dump($produitList);
+$produit = $controller->all();
 
-// var_dump($produitList['name']);
+// $controller->create();
 
 ?>
 <div class=" sm:ml-64 mt-10">
@@ -119,7 +117,7 @@ $produitList = $controller->all();
                     <th scope="col" class="px-6 py-3">
                         quantity
                     </th>
-                    <th scope="col" class="px-6 py-3" colspan="2">
+                    <th scope="col" class="px-6 py-3 text-center">
                         Actions
                     </th>
 
@@ -127,7 +125,7 @@ $produitList = $controller->all();
             </thead>
             <tbody>
                 <?php 
-                while ($row = $produitList->fetch_assoc()) {
+                while ($row = $produit->fetch_assoc()) {
                 
                 ?>
                 <tr
@@ -143,15 +141,13 @@ $produitList = $controller->all();
                         <?= $row['name']?>
                     </td>
                     <td class="px-6 py-4">
-                        prix
+                        <?= $row['prix']?>
                     </td>
                     <td class="px-6 py-4">
-                        quantity
+                        <?= $row['quantité']?>
                     </td>
                     <td class="px-6 py-4">
                         <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                    </td>
-                    <td class="px-6 py-4">
                         <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline">Delete</a>
                     </td>
                 </tr>

@@ -3,9 +3,9 @@ class UserModel
 {
     private $db;
 
-    public function __construct($host, $username, $password, $database)
+    public function __construct()
     {
-        $this->db =  mysqli_connect($host, $username, $password, $database);
+        $this->db =  mysqli_connect('localhost','root','','oop');
     }
 
 
@@ -13,7 +13,7 @@ class UserModel
 
     public function allProduit()
     {
-        // $hashedPassword = 'password_hash'($password, PASSWORD_DEFAULT);
+        
 
         $stmt = $this->db->prepare("select *from produit");
         $stmt->execute();
@@ -21,17 +21,14 @@ class UserModel
         return $result;
         
     }
+
+    
     public function createProduit($name, $prix, $quantity)
     {
-        // $hashedPassword = 'password_hash'($password, PASSWORD_DEFAULT);
-
+      
         $stmt = $this->db->prepare("INSERT INTO produit  VALUES (null,?, ?, ?)");
         $stmt->bind_param('sii', $name, $prix, $quantity);
-        if ($stmt->execute()) {
-            echo  "true";
-        } else {
-            echo  "false";
-        }
+        $stmt->execute();
     }
 }
 
