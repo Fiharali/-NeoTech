@@ -1,3 +1,6 @@
+<?php 
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -77,7 +80,10 @@
         text-decoration: none;
     }
 
-
+    span {
+        color: red;
+        font-size: 16px;
+    }
 
     body {
         background: #76b852;
@@ -98,13 +104,16 @@
 
     <div class="login-page">
         <div class="form">
-            <form class="register-form">
+            <form method="post" action="../../controller/auth/register.php " class="register-form">
                 <input type="text" placeholder="name" name="name" />
-                <input type="email" placeholder="email address" name="email" />
+                <span><?= isset($_SESSION['name']) ? $_SESSION['name']  : '' ; $_SESSION['name'] = ''; ?></span>
+                <input type=" email" placeholder="email address" name="email" />
+                <span><?= isset($_SESSION['email']) ? $_SESSION['email']  : '' ; $_SESSION['email'] = ''; ?></span>
                 <input type="password" placeholder="password" name="password" />
+                <span><?= isset($_SESSION['password']) ? $_SESSION['password']  : '' ; $_SESSION['password'] = ''; ?></span>
                 <input type="password" placeholder="confirm password" name="confirm_password" />
-
-                <button>create</button>
+                <span><?= isset($_SESSION['confirm_password']) ? $_SESSION['confirm_password']  : '' ; $_SESSION['confirm_password'] = ''; ?></span>
+                <button name="register" type="submit">Register</button>
                 <p class="message">Already registered? <a href="login.php">Sign In</a></p>
             </form>
 

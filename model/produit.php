@@ -1,5 +1,6 @@
 <?php
 
+include 'connection.php';
 
 class Produit
 {
@@ -7,7 +8,9 @@ class Produit
 
     public function __construct()
     {
-        $this->db =  mysqli_connect('localhost','root','','oop');
+        // $this->db =  mysqli_connect('localhost','root','','oop');
+        $data= new connection();
+        $this->db=$data->connection();
     }
 
     public function allProduit()

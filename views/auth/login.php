@@ -1,3 +1,7 @@
+<?php 
+session_start();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -77,6 +81,10 @@
         text-decoration: none;
     }
 
+    span {
+        color: red;
+        font-size: 16px;
+    }
 
     body {
         background: #76b852;
@@ -98,10 +106,12 @@
     <div class="login-page">
         <div class="form">
 
-            <form class="login-form">
-                <input type="email" placeholder="email address" />
-                <input type="password" placeholder="password" />
-                <button>login</button>
+            <form method="post" action="../../controller/auth/login.php" class="login-form">
+                <input type="email" placeholder="email address" name="email" />
+                <span><?= isset($_SESSION['email']) ? $_SESSION['email']  : '' ; $_SESSION['email'] = ''; ?></span>
+                <input type="password" placeholder="password" name="password" />
+                <span><?= isset($_SESSION['password']) ? $_SESSION['password']  : '' ; $_SESSION['password'] = ''; ?></span>
+                <button name="login" type="submit">login</button>
                 <p class="message">Not registered? <a href="register.php">Create an account</a></p>
             </form>
         </div>
