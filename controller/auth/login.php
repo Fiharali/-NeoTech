@@ -18,7 +18,7 @@ class RegisterController
     public function login($email, $password)
     {
 
-        if (empty($name)) {
+        if (empty($email)) {
             $_SESSION['email'] = "email is required";
         } else {
             $_SESSION['email'] = "";
@@ -30,7 +30,7 @@ class RegisterController
             $_SESSION['password'] = "";
         }
 
-        if (empty($_SESSION['name']) &&  empty($_SESSION['password'])) {
+        if (empty($_SESSION['email']) &&  empty($_SESSION['password'])) {
             $check =  $this->user->loginUser($email);
             if ($check->num_rows > 0) {
                 $user = $check->fetch_assoc();
