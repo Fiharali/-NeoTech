@@ -1,5 +1,7 @@
 <?php
-class UserModel
+
+
+class Produit
 {
     private $db;
 

@@ -17,9 +17,6 @@ if (isset($_POST['edit'])) {
     exit();
 }
 
-// var_dump($produit);
-
-
 
 ?>
 <div class=" sm:ml-64 mt-10">

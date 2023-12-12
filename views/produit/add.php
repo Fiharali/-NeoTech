@@ -4,8 +4,6 @@ include '../partials/navbar.php';
 
 
 
-// echo  $_SESSION['name'] : '';
-
 ?>
 <div class=" sm:ml-64 mt-10">
 

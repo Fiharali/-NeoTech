@@ -5,13 +5,14 @@
 include  __DIR__ . '/../model/produit.php';
 
 session_start();
-class UserController
+class ProduitController
 {
+
     private $model;
 
     public function __construct()
     {
-        $this->model = new UserModel();
+        $this->model = new Produit();
     }
 
 
@@ -63,8 +64,8 @@ class UserController
     public function delete($id)
     {
         $this->model->deleteProduit($id);
-        header("location:../../oop/views/produit/index.php");
-        exit();
+        // header("location:../../oop/views/produit/index.php");
+        // exit();
     }
 
 
@@ -113,7 +114,7 @@ class UserController
     }
 }
 
-$controller = new UserController();
+$controller = new ProduitController();
 
 
 
