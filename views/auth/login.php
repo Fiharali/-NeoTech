@@ -106,7 +106,7 @@ session_start();
     <div class="login-page">
         <div class="form">
 
-            <form method="post" action="../../controller/auth/login.php" class="login-form">
+            <form method="post" action="../../controller/user.php" class="login-form">
                 <input type="email" placeholder="email address" name="email" />
                 <span><?= isset($_SESSION['email']) ? $_SESSION['email']  : '' ; $_SESSION['email'] = ''; ?></span>
                 <input type="password" placeholder="password" name="password" />

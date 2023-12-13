@@ -9,8 +9,7 @@ class Produit
     public function __construct()
     {
         // $this->db =  mysqli_connect('localhost','root','','oop');
-        $data= new connection();
-        $this->db=$data->connection();
+        $this->db=Connection::connection();
     }
 
     public function allProduit()
