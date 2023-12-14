@@ -1,6 +1,6 @@
 <?php
 
-
+namespace app\model;
 class Connection
 {
     // private $data;

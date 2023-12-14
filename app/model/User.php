@@ -1,15 +1,22 @@
 <?php
 
 
-// include __DIR__.'/connection.php';
 
-spl_autoload_register (function ($class) {
-    include $class.'.php';
-    });
+namespace app\model;
 
-    
-session_start();
-class User
+include __DIR__.'/../../vendor/autoload.php';
+
+use app\model\Connection;
+
+
+
+
+
+// spl_autoload_register (function ($class) {
+//     include  __DIR__.'/'.$class.'.php';
+//     });
+
+class User  
 {
 
     private $db;
@@ -41,3 +48,6 @@ class User
     }
     
 }
+
+
+$user= new User("ali","email","password");

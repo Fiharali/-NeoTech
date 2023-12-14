@@ -104,7 +104,7 @@ session_start();
 
     <div class="login-page">
         <div class="form">
-            <form method="post" action="../../controller/user.php " class="register-form">
+            <form method="post" action="../../app/controller/user.php " class="register-form">
                 <input type="text" placeholder="name" name="name" />
                 <span><?= isset($_SESSION['name']) ? $_SESSION['name']  : '' ; $_SESSION['name'] = ''; ?></span>
                 <input type=" email" placeholder="email address" name="email" />

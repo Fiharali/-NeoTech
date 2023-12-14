@@ -1,14 +1,25 @@
 <?php
 
+namespace app\controller;
+
+include __DIR__.'/../../vendor/autoload.php';
+
+use app\model\User;
+
+session_start();
 
 
-include  __DIR__ . '/../model/User.php';
 
 // spl_autoload_register(function ($class) {
-//     include __DIR__ . '/../model/' . $class . '.php';
+//     include  __DIR__ .'/../'.$class.'.php'; 
 // });
 
-// session_start();
+
+
+
+
+
+
 class AuthController
 {
 
@@ -17,6 +28,7 @@ class AuthController
     public function Register($name, $email, $password, $confirm_password)
     {
         // return  $this->check($email);
+        // session_start();
 
         if (empty($name)) {
             $_SESSION['name'] = "Name is required";
@@ -25,8 +37,6 @@ class AuthController
         } else {
             $_SESSION['name'] = "";
         }
-
-
         if (empty($email)) {
             $_SESSION['email'] = "email is required";
         } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -42,7 +52,6 @@ class AuthController
         } else {
             $_SESSION['password'] = "";
         }
-
         if ($password != $confirm_password) {
             $_SESSION['confirm_password'] = "password doesn't match";
         } else {
@@ -59,10 +68,10 @@ class AuthController
             $password = password_hash($password, PASSWORD_DEFAULT);
             $checkUser = new User($name, $email, $password);
             $checkUser->createUser();
-            header("location:../views/produit/index.php");
+            header("location:../../views/produit/index.php");
             exit();
         } else {
-            header("location:../views/auth/register.php");
+            header("location:../../views/auth/register.php");
             exit();
         }
     }
@@ -89,17 +98,17 @@ class AuthController
             if ($check->num_rows > 0) {
                 $user = $check->fetch_assoc();
                 if (password_verify($password, $user["password"])) {
-                    header("location:../views/produit/index.php");
+                    header("location:../../views/produit/index.php");
                 } else {
                     $_SESSION['password'] = "password is incorrect";
                     header("location:../../views/auth/login.php");
                 }
             } else {
                 $_SESSION['email'] = "email  doesn't exist ";
-                header("location:../views/auth/login.php");
+                header("location:../../views/auth/login.php");
             }
         } else {
-            header("location:../views/auth/login.php");
+            header("location:../../views/auth/login.php");
             exit();
         }
     }
