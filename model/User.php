@@ -1,9 +1,13 @@
 <?php
 
 
-include __DIR__.'/connection.php';
+// include __DIR__.'/connection.php';
 
+spl_autoload_register (function ($class) {
+    include $class.'.php';
+    });
 
+    
 session_start();
 class User
 {

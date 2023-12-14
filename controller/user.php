@@ -2,13 +2,17 @@
 
 
 
-include  __DIR__ . '/../model/user.php';
+include  __DIR__ . '/../model/User.php';
+
+// spl_autoload_register(function ($class) {
+//     include __DIR__ . '/../model/' . $class . '.php';
+// });
 
 // session_start();
 class AuthController
 {
 
-    
+
 
     public function Register($name, $email, $password, $confirm_password)
     {
