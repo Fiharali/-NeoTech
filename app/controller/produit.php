@@ -2,7 +2,11 @@
 
 
 
-include  __DIR__ . '/../model/produit.php';
+namespace app\controller;
+
+include __DIR__.'/../../vendor/autoload.php';
+
+use app\model\Produit;
 
 session_start();
 class ProduitController

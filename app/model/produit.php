@@ -1,6 +1,10 @@
 <?php
 
-include 'connection.php';
+namespace app\model;
+
+include __DIR__.'/../../vendor/autoload.php';
+
+use app\model\Connection;
 
 class Produit
 {

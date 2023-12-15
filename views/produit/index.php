@@ -1,6 +1,6 @@
 <?php
 include  __DIR__ . '/../partials/navbar.php';
-include  __DIR__ . '/../../controller/produit.php';
+include  __DIR__ . '/../../app/controller/produit.php';
 
 
 $produit = $controller->all();

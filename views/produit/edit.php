@@ -1,7 +1,7 @@
 <?php
 session_start();
 include '../partials/navbar.php';
-include  __DIR__ . '/../../controller/produit.php';
+include  __DIR__ . '/../../app/controller/produit.php';
 
 if (isset($_POST['edit'])) {
     $produitResult = $controller->edit($_POST['id']);
